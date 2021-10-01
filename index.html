@@ -2,11 +2,22 @@
 <html>
   <head>
     <script src="https://pixijs.download/release/pixi.js"></script>
+    <style media="screen">
+      canvas{
+        padding: 0px
+      }
+      body{
+        margin:0px;
+overflow: hidden;
+        background-color: red
+      }
+    </style>
   </head>
   <body>
     <script>
-      let app = new PIXI.Application({ width: 640, height: 360 });
 
+      let app = new PIXI.Application({ width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight });
+      console.log(document.body);
       document.body.appendChild(app.view);
       let sprite = PIXI.Sprite.from("sample.png");
       app.stage.addChild(sprite);
